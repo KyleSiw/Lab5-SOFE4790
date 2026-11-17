@@ -1,14 +1,14 @@
 // Counter shared by multiple threads -- access is not synchronized
 
-public class MultiCounter extends Thread {
+public class task1code extends Thread {
 
    private static int counter = 0;
    private static final int limit = 1000;
 
    public static void main(String argv[]) throws InterruptedException {
-      MultiCounter t1 = new MultiCounter();
-      MultiCounter t2 = new MultiCounter();
-      MultiCounter t3 = new MultiCounter();
+      task1code t1 = new task1code();
+      task1code t2 = new task1code();
+      task1code t3 = new task1code();
 
       t1.start();
       t2.start();
@@ -23,7 +23,7 @@ public class MultiCounter extends Thread {
 
    public void run() {
       while (true) {
-         synchronized (MultiCounter.class) {
+         synchronized (task1code.class) {
             if (counter >= limit) break;
             incrementCounter();   // can stay as a plain method
          }
